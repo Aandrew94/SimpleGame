@@ -1,10 +1,12 @@
 #include            <iostream>
 #include            <cstdlib>
 #include            <ctime>
-#include            "player.h"
-#include            "hero.h"
-#include            "enemy.h"
-#include            "exceptions.h"
+
+#include            "Header/player.h"
+#include            "Header/hero.h"
+#include            "Header/enemy.h"
+#include            "Header/exceptions.h"
+
 
 
 
@@ -47,7 +49,7 @@ void    fight(Player &firstPlayer, Player &secondPlayer)
 }
 
 
-//  fct construt array of enemys
+//  fct constru t array of enemys
 Enemy**   enemyTeamBuild(int &numberEnemys)
 {
     std::cout<< "How many enemy do you want ?\n";
