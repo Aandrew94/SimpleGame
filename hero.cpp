@@ -19,8 +19,8 @@ Hero::Hero (std::string heroName): Player(heroName, 200, 20)
 void    Hero::heal()
 {
     playerHp = 200;
-    std::cout<< FGRN("\n\t [HEALING]\n");
-    std::cout<< FGRN("\t"<<playerName<<" HP: "<<playerHp<<"\n\n");
+    std::cout<< FGRN("\n\t\t   [HEALING]\n");
+    std::cout<< FGRN("\t\t "<<playerName<<" HP: "<<playerHp<<"\n\n");
 }
 
 

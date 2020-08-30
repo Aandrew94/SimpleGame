@@ -113,9 +113,9 @@ void    theGame(Hero &hero)
 
 
         if ((startFight != 'N' && startFight != 'n') && hero.getHP()){
-            std::cout<< BOLD(FWHT( "\n* * * * * * * * * * * * * *\n"));
-            std::cout<< '\t'<< hero.getName() << " WON ";
-            std::cout<< BOLD(FWHT( "\n* * * * * * * * * * * * * *\n\n\n"));
+            std::cout<< BOLD(FWHT( "\n\n\n\t* * * * * * * * * * * * * *\n"));
+            std::cout<< "\t\t"<< hero.getName() << " WON ";
+            std::cout<< BOLD(FWHT( "\n\t* * * * * * * * * * * * * *\n\n\n"));
         
         }
  
