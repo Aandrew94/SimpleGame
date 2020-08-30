@@ -33,12 +33,12 @@ Enemy*  randomEnemyGenerator()
 //  [Function] Fight sequence
 void    fight(Player &firstPlayer, Player &secondPlayer)    
 {
-    int runda{1};
+    int round{1};
 
     while( firstPlayer.is_alive() && secondPlayer.is_alive() ){
         
         std::cout<< "\n\n\n";
-        std::cout<< BOLD(FBLU("\t*** Round "<<runda<< " ***"));
+        std::cout<< BOLD(FBLU("\t*** Round "<<round<< " ***"));
         std::cout<<'\n'<<firstPlayer.getName()<<": HP = " <<firstPlayer.getHP()<<" | "<<
             secondPlayer.getName()<<": HP = "<<secondPlayer.getHP()<<'\n';
 
@@ -47,7 +47,7 @@ void    fight(Player &firstPlayer, Player &secondPlayer)
                 secondPlayer.attacking(firstPlayer);
             }
 
-        runda++;
+        round++;
     std::cout<< BOLD(FBLU( "\t*** End Round ***\n" ));
     }
     
