@@ -13,7 +13,7 @@ class Enemy: public Player{
         Enemy(std::string enemyName, int enemyHp, int enemyAtk);
 
         void    enemyInfo();
-        virtual ~Enemy();
+
 };
 
 

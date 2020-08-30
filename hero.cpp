@@ -1,17 +1,17 @@
 #include            "Header/hero.h"
 #include            "Header/exceptions.h"
+#include            "Header/color.h"
 #include            <iostream>
 
 
 Hero::Hero (std::string heroName): Player(heroName, 200, 20)
 {
     //  ctor
-    std::cout<<"\n-=[Hero Info]=-\n";
-    std::cout<< "______________________________________\n";
-    std::cout<< "| Hello ! I'm "<<heroName<<", the hero :)\n";
-    std::cout<< "| HP  : "<<playerHp<<"\n";
-    std::cout<< "| ATK : "<<playerAtk<<"\n";
-    std::cout<< "\t* * * \n";
+    std::cout<< BOLD(FYEL("\n\t -=[Hero Info]=-\n"));
+    std::cout<< BOLD(FYEL("____________________________________\n"));
+    std::cout<< BOLD(FYEL("\t| Name: "<<heroName<<"\t |\n"));
+    std::cout<< BOLD(FYEL("\t| HP  : "<<playerHp<<"\t |\n"));
+    std::cout<< BOLD(FYEL("\t| ATK : "<<playerAtk<<"\t |\n\n"));
 
 }
 
@@ -19,8 +19,8 @@ Hero::Hero (std::string heroName): Player(heroName, 200, 20)
 void    Hero::heal()
 {
     playerHp = 200;
-    std::cout<<"\n\t [HEALING]\n";
-    std::cout<<"\t"<<playerName<<" HP: "<<playerHp<<"\n\n";
+    std::cout<< FGRN("\n\t [HEALING]\n");
+    std::cout<< FGRN("\t"<<playerName<<" HP: "<<playerHp<<"\n\n");
 }
 
 

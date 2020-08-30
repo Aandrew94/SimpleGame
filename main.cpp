@@ -1,7 +1,9 @@
 #include            <iostream>
 #include            <cstdlib>
 #include            <ctime>
+#include            <limits>
 
+#include            "Header/color.h"
 #include            "Header/player.h"
 #include            "Header/hero.h"
 #include            "Header/enemy.h"
@@ -34,8 +36,9 @@ void    fight(Player &firstPlayer, Player &secondPlayer)
 
     while( firstPlayer.is_alive() && secondPlayer.is_alive() ){
         
-        std::cout<< "\n*** Runda "<<runda<< " ***\t\t";
-        std::cout<<firstPlayer.getName()<<": HP = " <<firstPlayer.getHP()<<" | "<<
+        std::cout<< "\n\n\n";
+        std::cout<< BOLD(FBLU("\t*** Round "<<runda<< " ***"));
+        std::cout<<'\n'<<firstPlayer.getName()<<": HP = " <<firstPlayer.getHP()<<" | "<<
             secondPlayer.getName()<<": HP = "<<secondPlayer.getHP()<<'\n';
 
         firstPlayer.attacking(secondPlayer);
@@ -44,17 +47,30 @@ void    fight(Player &firstPlayer, Player &secondPlayer)
             }
 
         runda++;
-    
+    std::cout<< BOLD(FBLU( "\t*** End Round ***\n" ));
     }
+    
 }
 
 
 //  fct constru t array of enemys
 Enemy**   enemyTeamBuild(int &numberEnemys)
 {
-    std::cout<< "How many enemy do you want ?\n";
-    std::cin>> numberEnemys;
+    while(1){       //  https://www.codespeedy.com/taking-only-integer-input-in-cpp/
+        std::cout<< "How many enemy do you want ?\t";
+        std::cin>> numberEnemys;
+    
+        if (!numberEnemys || numberEnemys <= 0){
+            std::cout << BOLD(FRED("\n[ERROR] Positive Numbers only !\n"));
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
 
+        else break;    
+
+    }
+        
     Enemy** enemys = new Enemy*[numberEnemys];
 
     for (int i=0; i<numberEnemys; i++){
@@ -65,6 +81,7 @@ Enemy**   enemyTeamBuild(int &numberEnemys)
 }
 
 
+
 //  the round - game itself 
 void    theGame(Hero &hero)
 {
@@ -72,59 +89,73 @@ void    theGame(Hero &hero)
     Enemy** arrayEnemy = enemyTeamBuild(numbersEnemys);
 
     for(int i=0; i<numbersEnemys; i++){
-        arrayEnemy[i]->enemyInfo();
-        
-        std::cout<< "Start fight ? \t (Y/N): ";
-        
-        char startFight;
-        std::cin>> startFight;
 
-        if (startFight == 'Y' || startFight == 'y'){
-            fight(hero,*arrayEnemy[i]);
+        char startFight;
+        
+        do{
+            std::cout<< "\nThe " << i+1 << "st is a : "<<arrayEnemy[i]->getName() << "\n";
+            arrayEnemy[i]->enemyInfo();
+        
+            std::cout<< BOLD(FCYN(" Status Hero:\t "))<<hero.getName()<<" HP: "<<hero.getHP()<<'\n';
+            std::cout<< BOLD(" Start fight ? \t (Y/N): ");
+            std::cin>> startFight;
+
+            if (startFight == 'Y' || startFight == 'y'){
+                fight(hero,*arrayEnemy[i]);
+                break;
+            }
+            else if ( startFight == 'N' || startFight == 'n'){
+               break;
+            }
+
+
+        }while(startFight != 'Y' || startFight != 'y' || startFight != 'N' || startFight != 'n');
+
+
+        if ((startFight != 'N' && startFight != 'n') && hero.getHP()){
+            std::cout<< BOLD(FWHT( "\n* * * * * * * * * * * * * *\n"));
+            std::cout<< '\t'<< hero.getName() << " WON ";
+            std::cout<< BOLD(FWHT( "\n* * * * * * * * * * * * * *\n\n\n"));
+        
         }
+ 
     }
 
     for(int i=0; i<numbersEnemys ;i++){
         delete arrayEnemy[i];
     }
+
     delete [] arrayEnemy;
+
 }
+
+
 
 
 
 int main(){
 
     srand(time(NULL));
-    //int howMany{};
+
     
-    Hero e1("Gigi");
+    Hero e1("Aragon");
 
 
-/*   PRESENT THE ENEMYS
-    
-    std::cout<<"There are "<<howMany<<" enemys\n";
-
-    for(int i=0;i<howMany;i++){
-        std::cout<<"\n\n";
-        listEnemy[i]->enemyInfo();
-        std::cout<<"\n\n";
-    }
-*/
 
     int scene{1};
     try{
         while(1){
-            std::cout<< "\n***** Scene "<< scene <<" *****\n";
+            std::cout<< BOLD("\n***** Area "<< scene <<" *****\n");
             theGame(e1);
             e1.heal();
-            std::cout<<std::endl;
+            std::cout<<'\n';
             scene++;
         }
     }   catch (DeadHeroException &hero){
-        std::cout<<"\n\n";
-        std::cout<<"\t -=[Your hero is dead]=-\n";
-        std::cout<<"\t\t \\(X_X)/\n\n";
+        hero.is_dead();
     }
+
+
 
     return 0;
 }

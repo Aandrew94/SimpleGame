@@ -1,4 +1,5 @@
 #include            "Header/player.h"
+#include            "Header/color.h"
 #include            <iostream>
 
 
@@ -7,6 +8,8 @@ Player::Player(std::string name, int hp, int atk)
 {
     //  ctor
 }
+
+Player::~Player(){}
 
 
 void    Player::is_attacked(int dmg)
@@ -19,6 +22,7 @@ void    Player::is_attacked(int dmg)
 void    Player::attacking(Player &other)
 {
     if ( is_alive() ){
+        std::cout<<'\n';
         std::cout<< playerName << " is attacking "<<other.playerName<<'\n';
         other.is_attacked(playerAtk);
     }
@@ -39,3 +43,4 @@ std::string     Player::getName()
 {
     return playerName;
 }
+

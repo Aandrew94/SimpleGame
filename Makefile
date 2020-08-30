@@ -4,7 +4,7 @@
 
 # Compiler settings - Can be customized.
 CC = g++
-CXXFLAGS = -std=c++14 -Wall -Wextra -Wsign-conversion
+CXXFLAGS = -std=c++14 -Wall -Wextra -Wsign-conversion -Weffc++  -Werror
 LDFLAGS = 
 
 # -Weffc++  error:	a member should be initialized 

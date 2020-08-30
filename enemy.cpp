@@ -1,4 +1,5 @@
 #include            "Header/enemy.h"
+#include            "Header/color.h"
 
 
 #include            <iostream>
@@ -10,14 +11,15 @@ Enemy::Enemy(std::string enemyName, int enemyHp, int enemyAtk)
     //  ctor
 }
 
-Enemy::~Enemy(){}
+//Enemy::~Enemy(){}
 
 void    Enemy::enemyInfo()
 {
-    std::cout<<"-=[Enemy Info]=-\n";
-    std::cout<< " ___________________\n";
-    std::cout<< "| Name :\t"<<playerName<<"\n";
-    std::cout<< "| HP   :\t"<<playerHp  <<"\n";
-    std::cout<< "| ATK  :\t"<<playerAtk <<"\n";
-    std::cout<< "|___________________\n";
+    std::cout<<"\n";
+    std::cout<< BOLD(FMAG("\t-=[Enemy Info]=-\n"));
+    std::cout<< BOLD(FMAG("____________________________________\n"));
+    std::cout<< BOLD(FMAG("\t| Name :\t"<<playerName<<"\n"));
+    std::cout<< BOLD(FMAG("\t| HP   :\t"<<playerHp  <<"\n"));
+    std::cout<< BOLD(FMAG("\t| ATK  :\t"<<playerAtk <<"\n"));
+    std::cout<< "\n\n\n";
 }

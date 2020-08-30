@@ -11,6 +11,7 @@ class Player{
 
     public:
         Player(std::string name, int hp, int atk);
+        virtual ~Player();
 
         void    attacking(Player &other);
         virtual void    is_attacked(int dmg);
@@ -18,6 +19,7 @@ class Player{
 
         int    getHP();
         std::string getName();
+
 
 };
 

@@ -3,7 +3,10 @@
 
 
 
-class DeadHeroException{};
+class DeadHeroException{
+    public:
+        void    is_dead();
+};
 
 
 
