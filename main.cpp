@@ -55,8 +55,8 @@ void    fight(Player &firstPlayer, Player &secondPlayer)
 
 //  fct constru t array of enemys
 Enemy**   enemyTeamBuild(int &numberEnemys)
-{
-    while(1){       //  https://www.codespeedy.com/taking-only-integer-input-in-cpp/
+{   //  https://www.codespeedy.com/taking-only-integer-input-in-cpp/
+    while(1){       
         std::cout<< "How many enemy do you want ?\t";
         std::cin>> numberEnemys;
     
