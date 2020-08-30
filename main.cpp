@@ -3,6 +3,7 @@
 #include            <ctime>
 #include            <limits>
 
+
 #include            "Header/color.h"
 #include            "Header/player.h"
 #include            "Header/hero.h"
@@ -13,8 +14,8 @@
 
 
 
-
-Enemy*  randomEnemyGenerator()      //  fct  generate one random enemy 
+//  [Function]  Generate one random enemy
+Enemy*  randomEnemyGenerator()      
 {
     int hp{};
     int attack{};
@@ -29,7 +30,7 @@ Enemy*  randomEnemyGenerator()      //  fct  generate one random enemy
 }
 
 
-//  fct fight sequence
+//  [Function] Fight sequence
 void    fight(Player &firstPlayer, Player &secondPlayer)    
 {
     int runda{1};
@@ -53,7 +54,7 @@ void    fight(Player &firstPlayer, Player &secondPlayer)
 }
 
 
-//  fct constru t array of enemys
+//  [Function]  Build array of enemys
 Enemy**   enemyTeamBuild(int &numberEnemys)
 {   //  https://www.codespeedy.com/taking-only-integer-input-in-cpp/
     while(1){       
@@ -82,7 +83,7 @@ Enemy**   enemyTeamBuild(int &numberEnemys)
 
 
 
-//  the round - game itself 
+//  [Function] The round - game itself 
 void    theGame(Hero &hero)
 {
     int numbersEnemys;
