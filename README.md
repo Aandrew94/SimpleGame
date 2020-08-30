@@ -11,16 +11,10 @@ A fight means alternate blows between the hero and the enemy.
 |   |Hero|  Enemy  |
 |:--|:--:|:-------:|
 |HP |200 | 40 - 200|
-|---+----+---------|
 |ATK|20  |  2 - 30 |
-|   |    |         |
+      
 
 
-
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
 
 
 Enemy:
