@@ -2,7 +2,7 @@
 <br>
 
 ## Task
----
+
 Create a basic fight game, in with a Hero will fight against one, two, or more enemy's per act.
 
 
@@ -10,10 +10,9 @@ Create a basic fight game, in with a Hero will fight against one, two, or more e
 
 
 ## Criteria
---- 
 *   Create the blueprint of a Player class and the specific methods of a classic fight game
 *   Build the subclasses for the Hero and Enemy
-*   Generate and present a random enemy
+*   Generate and present a random enemy, with a random life and attack power 
 *   Create an array(list) of enemy's based on random generation process
 *   Describe the fight act and add the perspective of an Enemy/Hero attack per round
 
@@ -25,7 +24,6 @@ Create a basic fight game, in with a Hero will fight against one, two, or more e
 
 
 ## Summary 
----
 A default hero meets different enemies. 
   
 At the beginning of each act, the user decides how many enemies should be in a single act, and if the hero will fight with them or not.
