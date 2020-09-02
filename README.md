@@ -47,4 +47,12 @@ An "act" represent a fight with a set of enemy's and "a round" means alternate b
 |HP |200 | 40 - 200|
 |ATK|20  |  2 - 30 |
       
+<br>
 
+### Run Locally
+---
+* Run the command `https://github.com/Aandrew94/SimpleGame.git`
+* From terminal, navigate into the folder named SimpleGame
+* Run `make` 
+* After the compile and linked process is complete, tun the application by `./SimpleGame`
+* Enjoy :)
