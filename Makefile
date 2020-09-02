@@ -4,7 +4,7 @@
 
 # Compiler settings - Can be customized.
 CC = g++
-CXXFLAGS = -std=c++14 -Wall -Wextra -Wsign-conversion -Weffc++  -Werror
+CXXFLAGS = -std=c++14 -Wall -Wextra -Wsign-conversion -Weffc++  
 LDFLAGS = 
 
 # -Weffc++  error:	a member should be initialized 
@@ -15,7 +15,8 @@ LDFLAGS =
 # Makefile settings - Can be customized.
 APPNAME = SimpleGame
 EXT = .cpp
-SRCDIR = /home/andrew/Documents/SimpleGame
+SRCDIR = src
+SRC = /home/andrew/Documents/SimpleGame
 OBJDIR = obj
 
 ############## Do not change anything from here downwards! #############
