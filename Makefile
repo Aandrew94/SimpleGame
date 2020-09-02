@@ -7,16 +7,17 @@ CC = g++
 CXXFLAGS = -std=c++14 -Wall -Wextra -Wsign-conversion -Weffc++  
 LDFLAGS = 
 
-# -Weffc++  error:	a member should be initialized 
-#					in the member initialization list
-# -Werror  error:	unused parameter ‘name’ [-Werror=unused-parameter]
+# Warning level description
+#
+# -Weffc++  error:	a member should be initialized in the member initialization list
+#		
+# -Werror   error:	unused parameter ‘name’ [-Werror=unused-parameter]
 
 
 # Makefile settings - Can be customized.
 APPNAME = SimpleGame
 EXT = .cpp
 SRCDIR = src
-SRC = /home/andrew/Documents/SimpleGame
 OBJDIR = obj
 
 ############## Do not change anything from here downwards! #############
