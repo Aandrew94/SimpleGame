@@ -4,18 +4,23 @@
 
 # Compiler settings - Can be customized.
 CC = g++
-CXXFLAGS = -std=c++14 -Wall -Wextra -Wsign-conversion -Weffc++  -Werror
+CXXFLAGS = -std=c++17 -Wall -Wextra -Wsign-conversion -Weffc++  -Werror
 LDFLAGS = 
 
-# -Weffc++  error:	a member should be initialized 
-#					in the member initialization list
-# -Werror  error:	unused parameter ‘name’ [-Werror=unused-parameter]
+# Warning level description
+#
+# -Wall		:	enables all the warinings about constructions
+# -Wextra	:	enables some extra waring flags that are not enabled by -Wall
+# -Wsign-conversion:	Warn for implicit conversions that may change the sign of an integer value
+# -Werror	:	treat warnings as errors -	unused parameter ‘name’ -  [-Werror=unused-parameter]
+# -Weffc++	:	a member should be initialized in the member initialization list
 
+# More info :	https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
 
 # Makefile settings - Can be customized.
 APPNAME = SimpleGame
 EXT = .cpp
-SRCDIR = /home/andrew/Documents/SimpleGame
+SRCDIR = src
 OBJDIR = obj
 
 ############## Do not change anything from here downwards! #############

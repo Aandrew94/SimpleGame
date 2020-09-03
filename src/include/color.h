@@ -26,7 +26,8 @@
 
 
 
-/*  https://github.com/gon1332/fort320/blob/master/include/Utils/colors.h
+/*  https://www.codespeedy.com/taking-only-integer-input-in-cpp/
+    https://github.com/gon1332/fort320/blob/master/include/Utils/colors.h
     https://en.wikipedia.org/wiki/ANSI_escape_code
 */
 

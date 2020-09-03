@@ -1,16 +1,13 @@
 #include            <iostream>
 #include            <cstdlib>
-#include            <ctime>
 #include            <limits>
 
-
-#include            "Header/color.h"
-#include            "Header/player.h"
-#include            "Header/hero.h"
-#include            "Header/enemy.h"
-#include            "Header/exceptions.h"
-
-
+#include            "include/color.h"
+#include            "include/player.h"
+#include            "include/hero.h"
+#include            "include/enemy.h"
+#include            "include/exceptions.h"
+#include            "include/base.h"
 
 
 
@@ -28,6 +25,39 @@ Enemy*  randomEnemyGenerator()
 
     return new Enemy(theName,hp,attack);
 }
+
+
+
+
+//  [Function]  Build array of enemys
+Enemy**   enemyTeamBuild(int &numberEnemys)
+{   
+    while(1){       
+        std::cout<< "How many enemy do you want ?\t";
+        std::cin>> numberEnemys;
+    
+        if (!numberEnemys || numberEnemys <= 0){
+            std::cout << BOLD(FRED("\n[ERROR] Positive Numbers only !\n"));
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
+
+        else break;    
+
+    }
+        
+    Enemy** enemys = new Enemy*[numberEnemys];
+
+    for (int i=0; i<numberEnemys; i++){
+        enemys[i] = randomEnemyGenerator();
+    }
+
+    return enemys;
+}
+
+
+
 
 
 //  [Function] Fight sequence
@@ -53,33 +83,6 @@ void    fight(Player &firstPlayer, Player &secondPlayer)
     
 }
 
-
-//  [Function]  Build array of enemys
-Enemy**   enemyTeamBuild(int &numberEnemys)
-{   //  https://www.codespeedy.com/taking-only-integer-input-in-cpp/
-    while(1){       
-        std::cout<< "How many enemy do you want ?\t";
-        std::cin>> numberEnemys;
-    
-        if (!numberEnemys || numberEnemys <= 0){
-            std::cout << BOLD(FRED("\n[ERROR] Positive Numbers only !\n"));
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
-        }
-
-        else break;    
-
-    }
-        
-    Enemy** enemys = new Enemy*[numberEnemys];
-
-    for (int i=0; i<numberEnemys; i++){
-        enemys[i] = randomEnemyGenerator();
-    }
-
-    return enemys;
-}
 
 
 
@@ -117,7 +120,6 @@ void    theGame(Hero &hero)
             std::cout<< BOLD(FWHT( "\n\n\n\t* * * * * * * * * * * * * *\n"));
             std::cout<< "\t\t"<< hero.getName() << " WON ";
             std::cout<< BOLD(FWHT( "\n\t* * * * * * * * * * * * * *\n\n\n"));
-        
         }
  
     }
@@ -130,33 +132,3 @@ void    theGame(Hero &hero)
 
 }
 
-
-
-
-
-int main(){
-
-    srand(time(NULL));
-
-    
-    Hero e1("Aragon");
-
-
-
-    int scene{1};
-    try{
-        while(1){
-            std::cout<< BOLD("\n***** Area "<< scene <<" *****\n");
-            theGame(e1);
-            e1.heal();
-            std::cout<<'\n';
-            scene++;
-        }
-    }   catch (DeadHeroException &hero){
-        hero.is_dead();
-    }
-
-
-
-    return 0;
-}

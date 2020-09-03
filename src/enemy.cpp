@@ -1,5 +1,5 @@
-#include            "Header/enemy.h"
-#include            "Header/color.h"
+#include            "include/enemy.h"
+#include            "include/color.h"
 
 
 #include            <iostream>

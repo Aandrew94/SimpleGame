@@ -1,6 +1,6 @@
-#include            "Header/hero.h"
-#include            "Header/exceptions.h"
-#include            "Header/color.h"
+#include            "include/hero.h"
+#include            "include/exceptions.h"
+#include            "include/color.h"
 #include            <iostream>
 
 

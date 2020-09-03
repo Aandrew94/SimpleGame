@@ -1,5 +1,5 @@
-#include            "Header/player.h"
-#include            "Header/color.h"
+#include            "include/player.h"
+#include            "include/color.h"
 #include            <iostream>
 
 
