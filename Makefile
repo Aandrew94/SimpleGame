@@ -19,6 +19,10 @@ LDFLAGS =
 
 # Makefile settings - Can be customized.
 APPNAME = SimpleGame
+
+MKDIR_P = mkdir -p obj
+${OUT_DIR}:${MKDIR_P} ${OUT_DIR}
+
 EXT = .cpp
 SRCDIR = src
 OBJDIR = obj
@@ -53,7 +57,9 @@ $(APPNAME): $(OBJ)
 -include $(DEP)
 
 # Building rule for .o files and its .c/.cpp in combination with all .h
+# Also create the obj directory
 $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
+	$(shell mkdir -p obj)
 	$(CC) $(CXXFLAGS) -o $@ -c $<
 
 ################### Cleaning rules for Unix-based OS ###################
