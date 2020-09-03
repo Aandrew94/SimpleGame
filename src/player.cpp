@@ -19,6 +19,7 @@ void    Player::is_attacked(int dmg)
     std::cout<<" "<< playerName <<" has now \t HP: "<<playerHp<<'\n';
 }
 
+
 void    Player::attacking(Player &other)
 {
     if ( is_alive() ){
@@ -27,6 +28,7 @@ void    Player::attacking(Player &other)
         other.is_attacked(playerAtk);
     }
 }
+
 
 bool    Player::is_alive()
 {
@@ -39,8 +41,15 @@ int    Player::getHP()
     return playerHp;
 }
 
-std::string     Player::getName()
+
+std::ostream& operator<< (std::ostream &out, const Player &player)
 {
-    return playerName;
+    out << player.playerName; 
+
+    return out;
 }
+
+
+
+
 
