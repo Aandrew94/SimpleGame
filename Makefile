@@ -4,7 +4,7 @@
 
 # Compiler settings - Can be customized.
 CC = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -Wsign-conversion -Weffc++  -Werror -Weffc++
+CXXFLAGS = -std=c++17 -Wall -Wextra -Wsign-conversion -Weffc++  -Werror
 LDFLAGS = 
 
 # Warning level description
