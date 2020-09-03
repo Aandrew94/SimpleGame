@@ -54,5 +54,5 @@ An "act" represent a fight with a set of enemy's and "a round" means alternate b
 * Run the command `git clone https://github.com/Aandrew94/SimpleGame.git`
 * From terminal, navigate into the folder named SimpleGame
 * Run `make` 
-* After the compile and linked process is complete, tun the application by `./SimpleGame`
+* After the compile and linked process is complete, run the application by `./SimpleGame`
 * Enjoy :)
