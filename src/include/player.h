@@ -16,10 +16,9 @@ class Player{
         void    attacking(Player &other);
         virtual void    is_attacked(int dmg);
         bool    is_alive();
-
         int    getHP();
-        std::string getName();
 
+        friend std::ostream& operator<< (std::ostream &out, const Player &player);
 
 };
 
