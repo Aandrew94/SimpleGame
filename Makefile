@@ -26,13 +26,15 @@ ${OUT_DIR}:${MKDIR_P} ${OUT_DIR}
 EXT = .cpp
 SRCDIR = src
 OBJDIR = obj
+DEPDIR = dep
 
 ############## Do not change anything from here downwards! #############
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
 OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
-DEP = $(OBJ:$(OBJDIR)/%.o=%.d)
+DEP = $(OBJ:$(OBJDIR)/%.o=$(DEPDIR)/%.d)
 # UNIX-based OS variables & settings
-RM = rm
+# -d	:	delete empty folders
+RM = rm -d		
 DELOBJ = $(OBJ)
 # Windows OS variables & settings
 DEL = del
@@ -50,7 +52,9 @@ $(APPNAME): $(OBJ)
 	$(CC) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 # Creates the dependecy rules
-%.d: $(SRCDIR)/%$(EXT)
+# Create a separate folder for .d files 
+$(DEPDIR)/%.d: $(SRCDIR)/%$(EXT)
+	$(shell mkdir -p dep)	
 	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
 
 # Includes all .h files
@@ -59,14 +63,14 @@ $(APPNAME): $(OBJ)
 # Building rule for .o files and its .c/.cpp in combination with all .h
 # Also create the obj directory
 $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
-	$(shell mkdir -p obj)
+	$(shell mkdir -p obj)	
 	$(CC) $(CXXFLAGS) -o $@ -c $<
 
 ################### Cleaning rules for Unix-based OS ###################
 # Cleans complete project
 .PHONY: clean
 clean:
-	$(RM) $(DELOBJ) $(DEP) $(APPNAME)
+	$(RM) $(DELOBJ) $(DEP) $(APPNAME) $(DEPDIR)	$(OBJDIR)
 
 # Cleans only all files with the extension .d
 .PHONY: cleandep
