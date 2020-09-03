@@ -69,8 +69,8 @@ void    fight(Player &firstPlayer, Player &secondPlayer)
         
         std::cout<< "\n\n\n";
         std::cout<< BOLD(FBLU("\t*** Round "<<round<< " ***"));
-        std::cout<<'\n'<<firstPlayer.getName()<<": HP = " <<firstPlayer.getHP()<<" | "<<
-            secondPlayer.getName()<<": HP = "<<secondPlayer.getHP()<<'\n';
+        std::cout<<'\n'<< firstPlayer <<": HP = " <<firstPlayer.getHP()<<" | "<<
+            secondPlayer <<": HP = "<<secondPlayer.getHP()<<'\n';
 
         firstPlayer.attacking(secondPlayer);
             if( secondPlayer.is_alive() ){
@@ -97,10 +97,10 @@ void    theGame(Hero &hero)
         char startFight;
         
         do{
-            std::cout<< "\nThe " << i+1 << "st is a : "<<arrayEnemy[i]->getName() << "\n";
+            std::cout<< "\nThe " << i+1 << "st is a : "<<*(arrayEnemy[i]) << "\n";
             arrayEnemy[i]->enemyInfo();
         
-            std::cout<< BOLD(FCYN(" Status Hero:\t "))<<hero.getName()<<" HP: "<<hero.getHP()<<'\n';
+            std::cout<< BOLD(FCYN(" Status Hero:\t "))<< hero <<" HP: "<<hero.getHP()<<'\n';
             std::cout<< BOLD(" Start fight ? \t (Y/N): ");
             std::cin>> startFight;
 
@@ -118,7 +118,7 @@ void    theGame(Hero &hero)
 
         if ((startFight != 'N' && startFight != 'n') && hero.getHP()){
             std::cout<< BOLD(FWHT( "\n\n\n\t* * * * * * * * * * * * * *\n"));
-            std::cout<< "\t\t"<< hero.getName() << " WON ";
+            std::cout<< BOLD(FWHT( "\t\t" << hero << " WON "));
             std::cout<< BOLD(FWHT( "\n\t* * * * * * * * * * * * * *\n\n\n"));
         }
  
